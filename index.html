@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Wallet</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/5b4f015aa1.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Digital Wallet</h1>
+        <p>By <a href="https://github.com/WindFox8">Rafael Correr <i class="fa-brands fa-github" ></i></a></p>
+    </header>
+    <section>
+        <div class="menuChange">
+            <button class="transactionsButton" onclick="showTransactions()"><i class="fa-solid fa-piggy-bank" style="color: #ffffff;"></i> Transactions</button>
+            <button class="recordButton" onclick="showRecords()"><i class="fa-solid fa-list" style="color: #ffffff;"></i> Wallet's records</button>
+        </div>
+
+
+        <div class="transactions show" >
+            <h2>Transactions</h2>
+            <input class="inputValue" type="number" step="0.01" placeholder="R$ 100,00">
+            <input class="inputDescription" type="text" placeholder="Description">
+            <button class="receiveButton" onclick="walletReceive()">Receive</button>
+            <button class="spendButton" onclick="walletSpend()">Spend</button>
+        </div>
+
+
+        <div class="records hide">
+            <h2>Records</h2>
+            <ul class="recordsList">
+            </ul>
+
+        </div>
+
+
+    </section>
+    <aside>
+        <div class="walletInfo">
+            <p>In wallet:</p>
+            <h1 class="totalValue">R$ 0,00</h1>
+        </div>
+        <div class="totalReceived">
+            Total Received:
+            <h1>R$ 0,00</h1>
+        </div>
+        <div class="totalSpend">
+            Total Spend:
+            <h1>R$ 0,00</h1>
+        </div>  
+    </aside>
+    
+    
+</body>
+</html>

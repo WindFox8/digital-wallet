@@ -1,0 +1,272 @@
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+  }
+
+body {
+    height: 100vh;
+    background: url('./bg.svg'), radial-gradient(60% 100% at 50% 0%, #daa520 0%, #463615 100%);
+    display: grid;
+    grid-template-rows: 15vh auto;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    'header aside'
+    'section aside';
+    color: #e4b34d;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: solid #463615;
+}
+
+aside {
+    grid-area: aside;
+    border-left: solid #463615;
+    display: grid;
+    grid-template-areas: 
+    ". . . ."
+    ". walletInfo walletInfo ."
+    ". totalReceived totalSpend .";
+    justify-content: space-around;
+}
+
+.walletInfo{
+    grid-area: walletInfo;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.totalReceived{
+    grid-area: totalReceived;
+}
+
+.totalSpend{
+    grid-area: totalSpend;
+}
+
+.totalReceived, 
+.totalSpend{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 2rem 1rem;
+    box-shadow: 0 0 50px 0 #261e0e;
+    border: 1px solid #e4b34d;
+    width: 12rem;
+    height: 10rem;
+}
+
+.walletInfo > p {
+    font-size: 30px;
+}
+
+.walletInfo > h1{
+    font-size: 50px;
+}
+
+section {
+    grid-area: section;
+}
+
+.menuChange {
+    
+    display: flex;
+    justify-content: space-around;
+    padding: .8rem;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 2rem;
+    color: white;
+    padding: 1rem;
+}
+
+.transactionsButton:hover, .recordButton:hover{
+    padding: 1rem;
+    transition: .2s;
+    background: rgba(244, 209, 149, 0.1);
+    box-shadow: 0 0 5px 0 #261e0e;
+    border-color: #261e0e;
+}
+
+header > p {
+    color: white;
+}
+ 
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover,
+a:hover i {
+    color: black;
+}
+
+.transactions {
+    margin: 2rem;
+    grid-template-areas: 
+        "title title title title"
+        "inputValue inputValue inputValue inputValue"
+        "inputDescription inputDescription inputDescription inputDescription"
+        ". receiveButton . spendButton" ;
+    gap: 2rem;
+}
+
+.transactions > h2 {
+    grid-area: title;
+}
+
+.inputValue {
+    grid-area: inputValue;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    padding: 1.5rem;
+    border: 1px solid #e4b34d;
+}
+
+.inputDescription {
+    grid-area: inputDescription;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    padding: 1.5rem;
+    border: 1px solid #e4b34d;
+}
+
+input::placeholder {
+    color: #e4b34d;
+    transition: .2s
+}
+
+input:hover, input:focus, 
+.receiveButton:hover, 
+.spendButton:hover{
+    color: white;
+    border-color: white;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+
+input:hover::placeholder,
+input:focus::placeholder {
+    color: white
+}
+
+.receiveButton {
+    grid-area: receiveButton;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 1rem;
+    border: 1px solid #e4b34d;
+    color: #e4b34d;
+    transition: .2s;
+    font-family: 'Montserrat', sans-serif;
+    width: 10rem;
+}
+
+.spendButton {
+    grid-area: spendButton;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 1rem;
+    border: 1px solid #e4b34d;
+    color: #e4b34d;
+    transition: .2s;
+    font-family: 'Montserrat', sans-serif;
+    width: 10rem;
+}
+
+.records{
+    margin: 2rem;
+    gap: 2rem;
+}
+
+.recordsList{
+    list-style-type: none;
+
+}
+
+ul{
+    display: flex;
+    flex-direction: column-reverse;
+    max-height: 27rem;
+    overflow-y: auto;
+}
+
+li {
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    padding: 1rem;
+    border: 1px solid #e4b34d;
+    transition: .2s;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem; 
+    display: flex;
+    align-items: center;
+}
+
+li > p{
+    margin-left: 40px;
+    overflow-x: hidden;
+    
+}
+
+.fa-trash-can{
+    margin-right: 0;
+    margin-left: auto;
+}
+
+li:hover{
+    border-color: white;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.show {
+    display: grid;
+  }
+
+.hide {
+    display: none;
+}
+
+@media (max-width: 915px) {
+    body {
+        display: grid;
+        grid-template-rows: 100px auto;
+        grid-template-columns: 1fr;
+        grid-template-areas: "header" "aside" "section";
+        height: 100vh;
+        overflow-x: auto;
+        background-attachment: fixed;
+    } 
+
+    header{
+        border: none;
+    }
+
+    aside {
+        border: none;
+        row-gap: 50px;
+    }
+
+}
